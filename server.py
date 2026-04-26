@@ -13,6 +13,7 @@ import datetime as dt
 import hashlib
 import html
 import json
+import os
 import re
 import sqlite3
 import sys
@@ -29,8 +30,8 @@ DATA_DIR = ROOT / "data"
 COVER_DIR = DATA_DIR / "covers"
 VIDEO_DIR = DATA_DIR / "videos"
 DB_PATH = DATA_DIR / "app.db"
-HOST = "127.0.0.1"
-PORT = 8000
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", "8000"))
 
 DATA_DIR.mkdir(exist_ok=True)
 COVER_DIR.mkdir(parents=True, exist_ok=True)
